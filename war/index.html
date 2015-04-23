@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<title>Kompramex.com - Busca y compara precios en las tiendas mas grandes de M&eacute;xico</title>
+        <meta charset="UTF-8">
+        <meta name="image" content="kompramex.png">
+	</head>
+
+	<style type="text/css">
+		<!--
+		A:link{text-decoration:none}
+		A:visited{text-decoration:none}
+		A:active{text-decoration:none}
+		A:hover{text-decoration:underline}
+		img{border-style:none;}
+		-->
+	</style>	
+
+	<body OnLoad="init();" onunload="init();">
+		<br><br><br><br>
+		<center><div style="color:#7B88E8;font-size:50pt">Kompramex</div></center>
+		<center><p>Busca y compara precios en las tiendas mas grandes de <b style="color:#7B88E8;">M&eacute;xico</b></p></center>
+		<center><form name="f" action="search"><input name="q" size="55" placeholder="Ejemplos: Pantalla 60 pulgadas, lavadora, Samsung galaxy..."></input><button onclick="go();">Buscar</button></form></center>
+		<br>
+		<table
+		 	style="width:100%;bottom:0;left:0;right:0;position:absolute;background-color:#EFEFEF;border:10px;">
+			<th><br>&nbsp;</th>
+		</table>
+		<div style="bottom:10;left:20;position:absolute;right:0">
+			<a href="about.html">Acerca de Kompramex</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="https://docs.google.com/forms/d/1NfM9zCrJBPtEgQ0aqap0R98HBfY_H-1htms3nLt5y60/viewform">Danos tu opini&oacute;n</a>
+		</div>
+		<div style="bottom:2;right:20;position:absolute;">
+			<a href="http://www.facebook.com/kompramex"><image src="facebook.png"></a>
+			<a href="http://www.twitter.com/kompramex"><image src="twitter.png"></a>
+		</div>
+
+		<div id="overlay" style="background-color:#FFFFFF;opacity:.7;filter:alpha(opacity=70);position:fixed;top:0;left:0;width:100%;height:100%;z-index:10;">
+		</div>
+
+		<center><img id="img" src="loading.gif" style="display:block;z-index:11;margin-left:auto;margin-right:auto;"></img></center>
+		
+	</body>
+
+	<script>
+		//init page
+		function init() {
+			f.q.focus();
+			document.getElementById('overlay').style.display = 'none';
+			document.getElementById('img').style.display = 'none';
+		}
+		//show loading
+		function loading() {
+			document.getElementById('overlay').style.display = '';
+			document.getElementById('img').style.display = '';
+		}
+		//go to results page
+		function go() {			
+			loading();
+			window.location.href='search?q='+f.qs.value;
+		}
+	</script>
+
+</html>
